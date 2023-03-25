@@ -2,17 +2,15 @@
 const checkLength = function (newString, maxLength) {
   if (newString.length <= maxLength) {
     return true;
-} else {
-  return false
-}
-}
+  } else {
+    return false;
+  }
+};
 checkLength('ООООООООOOO',10);
-
-
 
 //Проверка строки на палиндром:
 const getPalindromInfo = function (str) {
-  let newString = "";
+  let newString = '';
   str = str.replace(/\s+/g, '');
 
   for (let i = str.length - 1; i >= 0; i--) {
@@ -24,7 +22,7 @@ const getPalindromInfo = function (str) {
   } else {
     return false;
   }
-}
+};
 
 getPalindromInfo('Лёша на полке клопа нашёл');
 
@@ -32,22 +30,30 @@ getPalindromInfo('Лёша на полке клопа нашёл');
 //Извлекаем числа из строки
 function numFromStr(str){
   return [...str]
-  .map(i => {if(isFinite(i) == true || i == "."){return i}else{return " "}})
-  .join("")
-  .split(" ")
-  .filter(i => i != "")
-  .map(i => Number(i))
+    .map((i) => {
+      if(isFinite(i) === true || i === '.'){
+        return i;
+      }else{
+        return ' ';
+      }
+    })
+    .join('')
+    .split(' ')
+    .filter((i) => i !== '')
+    .map((i) => Number(i));
 }
 numFromStr('Пришел 2023 год');
 
 
 //Добавление символов
 const myPadStart = function (string, minLength, pad) {
-  let actualPad = minLength - string.length;
+  const actualPad = minLength - string.length;
   if (actualPad <= 0) {
     return string;
-  };
+  }
 
   return pad.slice(0, actualPad % pad.length) + pad.repeat(actualPad / pad.length) + string;
 
 };
+
+myPadStart('qwerty', 4, '0');
